@@ -1,15 +1,9 @@
-import { svgStyles } from "../../styles";
-
-export default function FileIcon() {
+function FileIcon() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      {...svgStyles}
-      viewBox="0 0 50 50"
-    >
-      <path d="M 7 2 L 7 48 L 43 48 L 43 14.59375 L 42.71875 14.28125 L 30.71875 2.28125 L 30.40625 2 Z M 9 4 L 29 4 L 29 16 L 41 16 L 41 46 L 9 46 Z M 31 5.4375 L 39.5625 14 L 31 14 Z"></path>
+    <svg aria-hidden="true" focusable="false" role="img" viewBox="0 0 16 16" fill="#7d8590" width={20} height={20}>
+      <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path>
     </svg>
   );
 }
+
+export default FileIcon;

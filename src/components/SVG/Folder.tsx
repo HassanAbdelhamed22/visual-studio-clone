@@ -1,22 +1,18 @@
 import { svgStyles } from "../../styles";
 
-export default function FolderIcon() {
+function FolderIcon() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      {...svgStyles}
-      viewBox="0 0 48 48"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" {...svgStyles} className="icon" viewBox="0 0 1024 1024">
       <path
         fill="#FFA000"
-        d="M40,12H22l-4-4H8c-2.2,0-4,1.8-4,4v8h40v-4C44,13.8,42.2,12,40,12z"
+        d="M853.333 256h-384L384 170.667H170.667c-46.934 0-85.334 38.4-85.334 85.333v170.667h853.334v-85.334c0-46.933-38.4-85.333-85.334-85.333z"
       ></path>
       <path
         fill="#FFCA28"
-        d="M40,12H8c-2.2,0-4,1.8-4,4v20c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"
+        d="M853.333 256H170.667c-46.934 0-85.334 38.4-85.334 85.333V768c0 46.933 38.4 85.333 85.334 85.333h682.666c46.934 0 85.334-38.4 85.334-85.333V341.333c0-46.933-38.4-85.333-85.334-85.333z"
       ></path>
     </svg>
   );
 }
+
+export default FolderIcon;
