@@ -4,7 +4,7 @@ interface IProps {
   fileName: string;
 }
 
-const FileComponents = ({ fileName }: IProps) => {
+const FileComponent = ({ fileName }: IProps) => {
   return (
     <div className="flex items-center">
       <span className="mr-2">
@@ -15,4 +15,4 @@ const FileComponents = ({ fileName }: IProps) => {
   );
 };
 
-export default FileComponents;
+export default FileComponent;

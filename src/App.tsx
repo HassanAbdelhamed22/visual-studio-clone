@@ -1,10 +1,10 @@
-import FileComponents from "./components/FileComponents";
+import FileComponent from "./components/FileComponent";
 
 function App() {
   return (
     <div className="m-7">
-      <FileComponents fileName="index.tsx" />
-      <FileComponents fileName="index.html" />
+      <FileComponent fileName="index.tsx" />
+      <FileComponent fileName="index.html" />
     </div>
   );
 }
