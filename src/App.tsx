@@ -1,10 +1,11 @@
+import FileComponents from "./components/FileComponents";
+
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
-    </>
+    <div className="m-7">
+      <FileComponents fileName="index.tsx" />
+      <FileComponents fileName="index.html" />
+    </div>
   );
 }
 
