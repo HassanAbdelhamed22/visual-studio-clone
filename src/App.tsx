@@ -1,11 +1,12 @@
 import FileComponent from "./components/FileComponent";
-import FolderComponent from "./components/FolderComponent";
+import { fileTree } from "./data/FileTree";
 
 function App() {
   return (
     <div className="m-7">
-      <FileComponent fileName="index.tsx" />
-      <FolderComponent folderName="node_modules" />
+      {fileTree.children?.map((file, index) => (
+        <FileComponent fileName={file.name} key={index} />
+      ))}
     </div>
   );
 }
