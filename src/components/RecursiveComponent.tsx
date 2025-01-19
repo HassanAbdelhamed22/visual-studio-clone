@@ -10,9 +10,9 @@ interface IProps {
 }
 
 const RecursiveComponent = ({
-  fileTree: { name, isFolder, children, content },
+  fileTree: { name, isFolder, children },
 }: IProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // ** Handlers
   const toggle = () => {
@@ -24,20 +24,23 @@ const RecursiveComponent = ({
       <div className="flex items-center mb-1">
         {isFolder ? (
           <div onClick={toggle} className="flex items-center">
-            {isOpen ? <RightArrowIcon /> : <BottomArrowIcon />}
+            {isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}
             <FolderIcon />
+
+            <span className="ml-2">{name}</span>
           </div>
         ) : (
-          <span className="mr-2">
+          <div className="mr-2 ml-2 flex items-center">
             <FileIcon />
-          </span>
+            <span className="ml-2">{name}</span>
+          </div>
         )}
-        <span>{name}</span>
       </div>
 
-      {children?.map((file, index) => (
-        <RecursiveComponent fileTree={file} key={index} />
-      ))}
+      {isOpen &&
+        children?.map((file, index) => (
+          <RecursiveComponent fileTree={file} key={index} />
+        ))}
     </div>
   );
 };
