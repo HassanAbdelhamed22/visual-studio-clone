@@ -32,5 +32,15 @@ export const fileTree: IFile = {
       name: "index.tsx",
       isFolder: false,
     },
+    {
+      name: "public",
+      isFolder: true,
+      children: [
+        {
+          name: "react.svg",
+          isFolder: false,
+        },
+      ],
+    },
   ],
-}
+};
