@@ -1,4 +1,3 @@
-import FileIcon from "./SVG/File";
 import RightArrowIcon from "./SVG/Right";
 import { IFile } from "../interfaces";
 import FolderIcon from "./SVG/Folder";
@@ -26,7 +25,7 @@ const RecursiveComponent = ({
         {isFolder ? (
           <div onClick={toggle} className="flex items-center">
             {isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}
-            <RenderFileIcon fileName={name} />
+            <FolderIcon />
 
             <span className="ml-2">{name}</span>
           </div>
