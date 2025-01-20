@@ -33,6 +33,10 @@ export const fileTree: IFile = {
       isFolder: false,
     },
     {
+      name: "index.jsx",
+      isFolder: false,
+    },
+    {
       name: "public",
       isFolder: true,
       children: [
@@ -41,6 +45,10 @@ export const fileTree: IFile = {
           isFolder: false,
         },
       ],
+    },
+    {
+      name: "index.html",
+      isFolder: false,
     },
   ],
 };
