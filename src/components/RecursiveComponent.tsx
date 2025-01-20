@@ -1,6 +1,5 @@
 import RightArrowIcon from "./SVG/Right";
 import { IFile } from "../interfaces";
-import FolderIcon from "./SVG/Folder";
 import { useState } from "react";
 import BottomArrowIcon from "./SVG/Bottom";
 import RenderFileIcon from "./RenderFileIcon";
@@ -25,12 +24,16 @@ const RecursiveComponent = ({
         {isFolder ? (
           <div onClick={toggle} className="flex items-center">
             {isOpen ? <BottomArrowIcon /> : <RightArrowIcon />}
-            <FolderIcon />
+            <RenderFileIcon
+              fileName={name}
+              isFolder={isFolder}
+              isOpen={isOpen}
+            />
 
             <span className="ml-2">{name}</span>
           </div>
         ) : (
-          <div className="mr-2 ml-2 flex items-center">
+          <div className="mr-2 ml-4 flex items-center">
             <RenderFileIcon fileName={name} />
             <span className="ml-2">{name}</span>
           </div>
