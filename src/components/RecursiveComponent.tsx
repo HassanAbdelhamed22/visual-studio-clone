@@ -3,14 +3,18 @@ import { IFile } from "../interfaces";
 import { useState } from "react";
 import BottomArrowIcon from "./SVG/Bottom";
 import RenderFileIcon from "./RenderFileIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenedFiles } from "../app/features/fileTreeSlice";
+import { RootState } from "../app/store";
 
 interface IProps {
   fileTree: IFile;
 }
 
-const RecursiveComponent = ({
-  fileTree: { name, isFolder, children },
-}: IProps) => {
+const RecursiveComponent = ({ fileTree }: IProps) => {
+  const { name, isFolder, children } = fileTree;
+  const dispatch = useDispatch();
+  const { openedFiles } = useSelector((state: RootState) => state.tree);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // ** Handlers
@@ -33,7 +37,10 @@ const RecursiveComponent = ({
             <span className="ml-2">{name}</span>
           </div>
         ) : (
-          <div className="mr-2 ml-4 flex items-center">
+          <div
+            className="mr-2 ml-4 flex items-center"
+            onClick={() => dispatch(setOpenedFiles([...openedFiles, fileTree]))}
+          >
             <RenderFileIcon fileName={name} />
             <span className="ml-2">{name}</span>
           </div>
