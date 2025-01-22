@@ -3,7 +3,7 @@ import { IFile } from "../../interfaces";
 
 interface IClickedFile {
   fileName: string;
-  fileContent: string;
+  fileContent: string | undefined;
 }
 
 interface IInitialState {
