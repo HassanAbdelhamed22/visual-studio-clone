@@ -5,7 +5,9 @@ import OpenedFilesBarTab from "./OpenedFilesBarTab";
 interface IProps {}
 
 const OpenedFilesBar = ({}: IProps) => {
-  const { openedFiles } = useSelector((state: RootState) => state.tree);
+  const { openedFiles, clickedFile } = useSelector(
+    (state: RootState) => state.tree
+  );
 
   return (
     <div>
@@ -14,6 +16,7 @@ const OpenedFilesBar = ({}: IProps) => {
           <OpenedFilesBarTab file={file} key={file.id} />
         ))}
       </div>
+      {clickedFile.fileContent}
     </div>
   );
 };
