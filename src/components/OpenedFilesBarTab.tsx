@@ -19,7 +19,7 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
 
   return (
     <div
-      className="flex items-center justify-center p-2 border-b-[1px] border-[#ffffff1f]"
+      className="flex items-center justify-center p-2 border-b-[1px] border-[#ffffff1f] hover:bg-[#64646473] duration-300"
       onClick={onClick}
     >
       <RenderFileIcon fileName={file.name} />
