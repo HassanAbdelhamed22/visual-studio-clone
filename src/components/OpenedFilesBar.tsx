@@ -16,7 +16,7 @@ const OpenedFilesBar = ({}: IProps) => {
           <OpenedFilesBarTab file={file} key={file.id} />
         ))}
       </div>
-      {clickedFile.fileContent}
+      <div className="p-2">{clickedFile.fileContent}</div>
     </div>
   );
 };
