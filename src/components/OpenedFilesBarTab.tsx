@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IFile } from "../interfaces";
 import RenderFileIcon from "./RenderFileIcon";
 import CloseIcon from "./SVG/CloseIcon";
-import { setActiveTabId, setClickedFile } from "../app/features/fileTreeSlice";
+import { setClickedFile } from "../app/features/fileTreeSlice";
 import { RootState } from "../app/store";
 
 interface IProps {
@@ -11,18 +11,23 @@ interface IProps {
 
 const OpenedFilesBarTab = ({ file }: IProps) => {
   const dispatch = useDispatch();
-  const { activeTabId } = useSelector((state: RootState) => state.tree);
+  const {
+    clickedFile: { activeTabId },
+  } = useSelector((state: RootState) => state.tree);
 
   // ** Handlers
   const onClick = () => {
     const { id, name, content } = file;
-    dispatch(setClickedFile({ fileName: name, fileContent: content }));
-    dispatch(setActiveTabId(id));
+    dispatch(
+      setClickedFile({ fileName: name, fileContent: content, activeTabId: id })
+    );
   };
 
   return (
     <div
-      className={`flex items-center p-2 border-t-2 ${activeTabId === file.id ? "border-[#cf6ccf]" : "border-transparent"}`}
+      className={`flex items-center p-2 border-t-2 ${
+        activeTabId === file.id ? "border-[#cf6ccf]" : "border-transparent"
+      }`}
       onClick={onClick}
     >
       <RenderFileIcon fileName={file.name} />
