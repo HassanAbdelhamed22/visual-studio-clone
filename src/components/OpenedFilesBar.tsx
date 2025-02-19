@@ -17,9 +17,7 @@ const OpenedFilesBar = ({}: IProps) => {
           <OpenedFilesBarTab file={file} key={file.id} />
         ))}
       </div>
-      <div className="p-2">
-        <FileSyntaxHighlighter content={clickedFile.fileContent} />
-      </div>
+      <FileSyntaxHighlighter content={clickedFile.fileContent} />
     </div>
   );
 };
