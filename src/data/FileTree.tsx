@@ -118,12 +118,6 @@ export const fileTree: IFile = {
       children: [
         {
           id: uuid(),
-          name: "assets",
-          isFolder: true,
-          children: [],
-        },
-        {
-          id: uuid(),
           name: "components",
           isFolder: true,
           children: [
@@ -152,18 +146,6 @@ export const fileTree: IFile = {
               content: `import React from 'react';\n\nconst Footer = () => {\n  return (\n    <footer>\n      <p>Footer</p>\n    </footer>\n  );\n};\n\nexport default Footer;`,
             },
           ],
-        },
-        {
-          id: uuid(),
-          name: "context",
-          isFolder: true,
-          children: [],
-        },
-        {
-          id: uuid(),
-          name: "hooks",
-          isFolder: true,
-          children: [],
         },
         {
           id: uuid(),
