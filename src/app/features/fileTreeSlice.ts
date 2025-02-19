@@ -27,8 +27,7 @@ export const fileTreeSlice = createSlice({
       state.openedFiles = action.payload;
     },
     setClickedFile(state, action: PayloadAction<IClickedFile>) {
-      state.clickedFile.fileName = action.payload.fileName;
-      state.clickedFile.fileContent = action.payload.fileContent;
+      state.clickedFile = action.payload;
     },
   },
 });
