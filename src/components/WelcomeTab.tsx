@@ -13,7 +13,7 @@ const WelcomeTab = () => {
           Your powerful coding environment, remained.
         </p>
       </div>
-      <button className="mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 transition">
+      <button className="mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 transition duration-300">
         Get Started
       </button>
     </div>
