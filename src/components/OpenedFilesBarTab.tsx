@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IFile } from "../interfaces";
 import RenderFileIcon from "./RenderFileIcon";
 import CloseIcon from "./SVG/CloseIcon";
-import { setClickedFile } from "../app/features/fileTreeSlice";
+import { setClickedFile, setOpenedFiles } from "../app/features/fileTreeSlice";
 import { RootState } from "../app/store";
 
 interface IProps {
@@ -12,6 +12,7 @@ interface IProps {
 const OpenedFilesBarTab = ({ file }: IProps) => {
   const dispatch = useDispatch();
   const {
+    openedFiles,
     clickedFile: { activeTabId },
   } = useSelector((state: RootState) => state.tree);
 
@@ -21,6 +22,19 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
     dispatch(
       setClickedFile({ fileName: name, fileContent: content, activeTabId: id })
     );
+  };
+
+  const onRemove = (id: string) => {
+    const filtered = openedFiles.filter((file) => file.id !== id);
+    const lastTab = filtered[filtered.length - 1];
+    dispatch(
+      setClickedFile({
+        activeTabId: lastTab.id,
+        fileName: lastTab.name,
+        fileContent: lastTab.content,
+      })
+    );
+    dispatch(setOpenedFiles(filtered));
   };
 
   return (
@@ -34,7 +48,13 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
       <span className="cursor-pointer duration-300 flex justify-center items-center w-fit mx-1 p-1 rounded-md">
         {file.name}
       </span>
-      <span className="cursor-pointer hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md">
+      <span
+        className="cursor-pointer hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
+        onClick={(e) => {
+          e.stopPropagation();
+          onRemove(file.id);
+        }}
+      >
         <CloseIcon />
       </span>
     </div>
