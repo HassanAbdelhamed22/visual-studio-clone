@@ -5,7 +5,7 @@ const WelcomeTab = () => {
     <div className="flex flex-col justify-center items-center h-screen">
       <IconImg
         src="/icons/vscode.svg"
-        className="w-64 h-64 drop-shadow-[0_0_20px_#5DBCFC]"
+        className="w-64 h-64 drop-shadow-[0_0_15px_#5DBCFC]"
       />
       <div className="text-center text-white mt-4">
         <h1 className="text-3xl font-bold">Welcome to VS Code Clone</h1>

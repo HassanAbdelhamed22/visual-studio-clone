@@ -458,18 +458,18 @@ ReactDOM.render(<App />, document.getElementById("root"));`,
       name: "package.json",
       isFolder: false,
       content: `{
-      "name": "vs-code-clone",
-      "version": "1.0.0",
-      "main": "index.js",
-      "scripts": {
-        "start": "vite",
-        "build": "vite build"
-      },
-      "dependencies": {
-        "react": "^18.0.0",
-        "react-dom": "^18.0.0"
-      }
-    }`,
+  "name": "vs-code-clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+}`,
     },
     {
       id: uuid(),
