@@ -2,7 +2,7 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlig
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 interface IProps {
-  content: string;
+  content: string | undefined;
 }
 
 const FileSyntaxHighlighter = ({ content }: IProps) => {
