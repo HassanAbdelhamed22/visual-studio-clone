@@ -5,14 +5,16 @@ import { fileTree } from "./data/FileTree";
 
 function App() {
   return (
-    <div className="">
-      <div className="flex min-h-screen">
-        <div className="w-64 border-r p-2 border-[#ffffff1f]">
-          <RecursiveComponent fileTree={fileTree} />
-        </div>
-        <ResizablePanel />
-        {/* <OpenedFilesBar /> */}
-      </div>
+    <div className="flex h-screen">
+      <ResizablePanel
+      showLeftPanel
+        leftPanel={
+          <div className="w-64 p-2">
+            <RecursiveComponent fileTree={fileTree} />
+          </div>
+        }
+        rightPanel={<OpenedFilesBar />}
+      />
     </div>
   );
 }
