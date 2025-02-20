@@ -28,7 +28,7 @@ const RenderFileIcon = ({ fileName, isFolder, isOpen }: IProps) => {
   if (isFolder && isOpen)
     return <IconImg src="/icons/folder-default-open.svg" />;
 
-  return <FileIcon />;
+  return <FileIcon width={20} height={20} />;
 };
 
 export default RenderFileIcon;
