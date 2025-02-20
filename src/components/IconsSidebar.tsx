@@ -4,9 +4,10 @@ import Search from "./SVG/Search";
 
 interface IProps {
   toggleLeftPanel: () => void;
+  toggleSearchModal: () => void;
 }
 
-const IconsSidebar = ({ toggleLeftPanel }: IProps) => {
+const IconsSidebar = ({ toggleLeftPanel, toggleSearchModal }: IProps) => {
   return (
     <div className="bg-[#1e1e1e] h-full shadow-md flex justify-center">
       <div className="h-full py-2 flex flex-col justify-between">
@@ -14,7 +15,9 @@ const IconsSidebar = ({ toggleLeftPanel }: IProps) => {
           <button onClick={toggleLeftPanel}>
             <FileIcon height={30} width={30} />
           </button>
-          <Search />
+          <button onClick={toggleSearchModal}>
+            <Search />
+          </button>
         </div>
         <ColorTheme />
       </div>
