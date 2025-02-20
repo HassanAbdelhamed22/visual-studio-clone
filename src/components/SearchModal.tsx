@@ -90,9 +90,21 @@ const SearchModal = ({ onClose, onResultClick }: IProps) => {
     );
   };
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-[#64646473] p-4 rounded-md w-[600px] max-h-[90vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+      onClick={handleBackdropClick}
+    >
+      <div
+        className="bg-[#64646473] p-4 rounded-md w-[600px] max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="text-lg font-semibold mb-4">Search in All Files</h2>
         <input
           type="text"
