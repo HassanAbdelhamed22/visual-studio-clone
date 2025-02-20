@@ -1,11 +1,24 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface IProps {
+  setShowMenu: (val: boolean) => void;
   positions: { x: number; y: number };
 }
 
-const ContextMenu = ({ positions }: IProps) => {
+const ContextMenu = ({ positions, setShowMenu }: IProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [setShowMenu]);
   return (
     <div ref={menuRef}>
       <ul
