@@ -4,7 +4,7 @@ interface ColorThemeProps {
   onClose: () => void;
 }
 
-const themes = ["light", "dark", "high-contrast"];
+const themes = ["light", "dark"];
 
 const ColorTheme = ({ onClose }: ColorThemeProps) => {
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -36,7 +36,7 @@ const ColorTheme = ({ onClose }: ColorThemeProps) => {
 
   return (
     <div
-      className="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-2 w-40"
+      className="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-2 w-40 flex flex-col gap-2"
       onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
     >
       {themes.map((theme) => (
