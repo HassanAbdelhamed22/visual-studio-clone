@@ -32,11 +32,16 @@ const ContextMenu = ({ positions, setShowMenu }: IProps) => {
   return (
     <div ref={menuRef}>
       <ul
-        className="bg-white text-black w-fit px-7 py-2 rounded-md"
+        className="text-sm absolute z-50 bg-[#1e1e1e]/90 backdrop-blur-md text-white w-48 rounded-lg shadow-lg py-2 transition-transform duration-5 00 scale-150 opacity-0 animate-fadeIn"
         style={{ position: "absolute", left: positions.x, top: positions.y }}
       >
-        <li className="cursor-pointer">Close</li>
-        <li className="cursor-pointer" onClick={handelCloseAll}>
+        <li className="px-4 py-2 hover:bg-[#2a2a2a] transition rounded-t-lg cursor-pointer">
+          Close
+        </li>
+        <li
+          className="px-4 py-2 hover:bg-[#2a2a2a] transition rounded-t-lg cursor-pointer"
+          onClick={handelCloseAll}
+        >
           Close all
         </li>
       </ul>
