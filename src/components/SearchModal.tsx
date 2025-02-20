@@ -15,7 +15,7 @@ const SearchModal = ({ onClose }: IProps) => {
 
   // Debounce function
   const debounce = (func: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
     return (...args: any[]) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => func(...args), delay);
