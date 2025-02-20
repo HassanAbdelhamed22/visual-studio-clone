@@ -4,8 +4,6 @@ import RenderFileIcon from "./RenderFileIcon";
 import CloseIcon from "./SVG/CloseIcon";
 import { setClickedFile, setOpenedFiles } from "../app/features/fileTreeSlice";
 import { RootState } from "../app/store";
-import { useState } from "react";
-import DropMenu from "./ui/DropMenu";
 
 interface IProps {
   file: IFile;
@@ -13,11 +11,6 @@ interface IProps {
 
 const OpenedFilesBarTab = ({ file }: IProps) => {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [menuPosition, setMenuPosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
   const {
     openedFiles,
     clickedFile: { activeTabId },
@@ -61,11 +54,6 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
         activeTabId === file.id ? "border-[#cf6ccf]" : "border-transparent"
       }`}
       onClick={onClick}
-      onContextMenu={(e) => {
-        e.preventDefault();
-        setMenuPosition({ x: e.clientX, y: e.clientY });
-        setShowMenu(true);
-      }}
     >
       <RenderFileIcon fileName={file.name} />
       <span className="cursor-pointer duration-300 flex justify-center items-center w-fit mx-1 p-1 rounded-md">
@@ -80,8 +68,6 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
       >
         <CloseIcon />
       </span>
-
-      {showMenu && <DropMenu positions={menuPosition} />}
     </div>
   );
 };
