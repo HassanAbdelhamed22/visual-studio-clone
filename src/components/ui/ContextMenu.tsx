@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setOpenedFiles } from "../../app/features/fileTreeSlice";
 
 interface IProps {
   setShowMenu: (val: boolean) => void;
@@ -6,6 +8,7 @@ interface IProps {
 }
 
 const ContextMenu = ({ positions, setShowMenu }: IProps) => {
+  const dispatch = useDispatch();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,14 +22,23 @@ const ContextMenu = ({ positions, setShowMenu }: IProps) => {
       window.removeEventListener("click", handleClickOutside);
     };
   }, [setShowMenu]);
+
+  // ** Handlers
+  const handelCloseAll = () => {
+    setShowMenu(false);
+    dispatch(setOpenedFiles([]));
+  };
+
   return (
     <div ref={menuRef}>
       <ul
         className="bg-white text-black w-fit px-7 py-2 rounded-md"
         style={{ position: "absolute", left: positions.x, top: positions.y }}
       >
-        <li>Close</li>
-        <li>Close all</li>
+        <li className="cursor-pointer">Close</li>
+        <li className="cursor-pointer" onClick={handelCloseAll}>
+          Close all
+        </li>
       </ul>
     </div>
   );
