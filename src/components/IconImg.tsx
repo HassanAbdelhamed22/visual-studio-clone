@@ -4,7 +4,7 @@ interface IProps {
 }
 
 const IconImg = ({ src, className = "w-5 h-5" }: IProps) => {
-  return <img src={src} alt="" className={className} />;
+  return <img src={src} alt="" className={className} loading="lazy"/>;
 };
 
 export default IconImg;
