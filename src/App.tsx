@@ -22,6 +22,13 @@ function App() {
     setSearchOpen((prev) => !prev);
   };
 
+  const handleResultClick = (file: string, line: number) => {
+    // Logic to open the file and scroll to the line
+    console.log(`Opening file: ${file}, scrolling to line: ${line}`);
+    // Close the modal after opening the file
+    setSearchOpen(false);
+  };
+
   return (
     <div className="flex h-screen">
       <div className="w-14">
@@ -41,7 +48,12 @@ function App() {
         }
         rightPanel={openedFiles.length > 0 ? <Preview /> : <WelcomeTab />}
       />
-      {searchOpen && <SearchModal onClose={toggleSearchModal} />}
+      {searchOpen && (
+        <SearchModal
+          onClose={toggleSearchModal}
+          onResultClick={handleResultClick}
+        />
+      )}
     </div>
   );
 }
