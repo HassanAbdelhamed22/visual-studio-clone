@@ -32,7 +32,7 @@ const ResizablePanel = ({
         {showLeftPanel && leftPanel}
       </Panel>
       {showLeftPanel && (
-        <PanelResizeHandle className="border-r-2 border-[#ffffff1f]" />
+        <PanelResizeHandle className="border-r-2 border-[#e4e4e4] dark:border-[#ffffff1f]" />
       )}
       <Panel defaultSize={defaultLayout[1]}>{rightPanel}</Panel>
     </PanelGroup>
