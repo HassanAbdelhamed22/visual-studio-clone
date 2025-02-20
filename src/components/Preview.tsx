@@ -5,11 +5,14 @@ import { RootState } from "../app/store";
 
 const Preview = () => {
   const { clickedFile } = useSelector((state: RootState) => state.tree);
-  
+
   return (
     <>
       <OpenedFilesBar />
-      <FileSyntaxHighlighter content={clickedFile.fileContent} />
+      <FileSyntaxHighlighter
+        content={clickedFile.fileContent}
+        scrollToLine={clickedFile.scrollToLine}
+      />
     </>
   );
 };
