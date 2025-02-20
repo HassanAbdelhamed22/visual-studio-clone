@@ -54,8 +54,10 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
 
   return (
     <div
-      className={`flex items-center p-2 border-t-2 ${
-        activeTabId === file.id ? "border-[#cf6ccf]" : "border-transparent"
+      className={`flex items-center p-2 border-t-[3px] ${
+        activeTabId === file.id
+          ? "border-[#bd34bd] dark:border-[#cf6ccf]"
+          : "border-transparent"
       }`}
       onClick={onClick}
       onContextMenu={(e) => {
@@ -68,13 +70,13 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
         {file.name}
       </span>
       <span
-        className="cursor-pointer hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
+        className="cursor-pointer hover:bg-[#a5a5a585] dark:hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
         onClick={(e) => {
           e.stopPropagation();
           onRemove(file.id);
         }}
       >
-        <CloseIcon />
+        <CloseIcon className="text-gray-800 dark:text-gray-300" />
       </span>
     </div>
   );

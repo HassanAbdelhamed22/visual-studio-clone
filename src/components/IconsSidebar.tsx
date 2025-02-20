@@ -1,6 +1,8 @@
-import ColorTheme from "./SVG/ColorTheme";
+import { useState } from "react";
+import ColorThemeIcon from "./SVG/ColorTheme";
 import FileIcon from "./SVG/File";
 import Search from "./SVG/Search";
+import ColorTheme from "./ui/ColorTheme";
 
 interface IProps {
   toggleLeftPanel: () => void;
@@ -8,18 +10,37 @@ interface IProps {
 }
 
 const IconsSidebar = ({ toggleLeftPanel, toggleSearchModal }: IProps) => {
+  const [showThemeOptions, setShowThemeOptions] = useState(false);
+
   return (
-    <div className="bg-[#1e1e1e] h-full shadow-md flex justify-center">
-      <div className="h-full py-2 flex flex-col justify-between">
+    <div className="bg-[#e4e4e4] dark:bg-[#1e1e1e] h-full shadow-md flex justify-center relative">
+      <div className="h-full py-2 flex flex-col justify-between relative">
         <div className="p-1 flex flex-col gap-4">
           <button onClick={toggleLeftPanel}>
-            <FileIcon height={30} width={30} />
+            <FileIcon
+              height={30}
+              width={30}
+              className="text-gray-800 dark:text-gray-300"
+            />
           </button>
           <button onClick={toggleSearchModal}>
-            <Search />
+            <Search className="text-gray-800 dark:text-gray-300" />
           </button>
         </div>
-        <ColorTheme />
+
+        {/* Color Theme Toggle Button */}
+        <div className="relative">
+          <button onClick={() => setShowThemeOptions(!showThemeOptions)}>
+            <ColorThemeIcon className="text-gray-800 dark:text-gray-300" />
+          </button>
+
+          {/* Show Color Theme Dropdown */}
+          {showThemeOptions && (
+            <div className="absolute left-28 bottom-1 transform -translate-x-1/2">
+              <ColorTheme onClose={() => setShowThemeOptions(false)} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

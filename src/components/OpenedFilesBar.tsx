@@ -23,7 +23,7 @@ const OpenedFilesBar = ({}: IProps) => {
         setShowMenu(true);
       }}
     >
-      <div className="flex items-center border-b-[1px] border-[#ffffff1f]">
+      <div className="flex items-center border-b-[1px] border-[#a5a5a5] dark:border-[#ffffff1f]">
         {openedFiles.map((file) => (
           <OpenedFilesBarTab file={file} key={file.id} />
         ))}

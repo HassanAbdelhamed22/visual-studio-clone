@@ -79,7 +79,7 @@ const SearchModal = ({ onClose, onResultClick }: IProps) => {
       <span>
         {parts.map((part, index) =>
           part.toLowerCase() === query.toLowerCase() ? (
-            <span key={index} className="bg-yellow-200">
+            <span key={index} className="bg-yellow-200 dark:bg-yellow-600 text-black dark:text-white px-1 rounded">
               {part}
             </span>
           ) : (
@@ -102,13 +102,13 @@ const SearchModal = ({ onClose, onResultClick }: IProps) => {
       onClick={handleBackdropClick}
     >
       <div
-        className="bg-[#64646473] p-4 rounded-md w-[600px] max-h-[90vh] overflow-y-auto"
+        className="bg-white dark:bg-[#1f1f1f] text-gray-900 dark:text-gray-200 p-4 rounded-md w-[600px] max-h-[90vh] overflow-y-auto shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-lg font-semibold mb-4">Search in All Files</h2>
         <input
           type="text"
-          className="border p-2 w-full mb-4"
+          className="border p-2 w-full mb-4 bg-gray-100 dark:bg-[#2d2d2d] border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-200 rounded-md"
           placeholder="Enter search term..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -116,14 +116,14 @@ const SearchModal = ({ onClose, onResultClick }: IProps) => {
         />
         {isLoading ? (
           <div className="flex justify-center items-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-gray-200"></div>
           </div>
         ) : results.length > 0 ? (
           <ul className="mt-2">
             {results.map((res, index) => (
               <li
                 key={index}
-                className="border-b py-2 hover:bg-[#646464de] cursor-pointer duration-300"
+                className="border-b border-gray-300 dark:border-gray-600 py-2 hover:bg-gray-200 dark:hover:bg-[#2d2d2d] cursor-pointer duration-300 px-2 rounded-md"
                 onClick={() => onResultClick(res.file, res.line)}
               >
                 <strong>{res.file}</strong> (Line {res.line}):{" "}
@@ -132,10 +132,10 @@ const SearchModal = ({ onClose, onResultClick }: IProps) => {
             ))}
           </ul>
         ) : query ? (
-          <p className="text-gray-500">No results found.</p>
+          <p className="text-gray-500 dark:text-gray-400">No results found.</p>
         ) : null}
         <button
-          className="mt-4 px-4 py-2 rounded-lg bg-red-500 hover:bg-red-700 duration-300"
+          className="mt-4 px-4 py-2 rounded-lg bg-red-500 dark:bg-red-600 hover:bg-red-700 dark:hover:bg-red-500 duration-300 text-white"
           onClick={onClose}
         >
           Close
