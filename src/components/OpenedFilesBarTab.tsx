@@ -70,7 +70,7 @@ const OpenedFilesBarTab = ({ file }: IProps) => {
         {file.name}
       </span>
       <span
-        className="cursor-pointer hover:bg-[#a5a5a585] dark:hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
+        className="cursor-pointer hover:bg-[#e4e4e485] dark:hover:bg-[#64646473] duration-300 flex justify-center items-center w-fit mr-2 p-1 rounded-md"
         onClick={(e) => {
           e.stopPropagation();
           onRemove(file.id);
