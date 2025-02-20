@@ -4,9 +4,10 @@ import { IFile } from "../interfaces";
 
 interface IProps {
   onClose: () => void;
+  onResultClick: (file: string, line: number) => void;
 }
 
-const SearchModal = ({ onClose }: IProps) => {
+const SearchModal = ({ onClose, onResultClick }: IProps) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<
     { file: string; line: number; text: string }[]
@@ -108,7 +109,11 @@ const SearchModal = ({ onClose }: IProps) => {
         ) : results.length > 0 ? (
           <ul className="mt-2">
             {results.map((res, index) => (
-              <li key={index} className="border-b py-2">
+              <li
+                key={index}
+                className="border-b py-2 hover:bg-[#646464de] cursor-pointer duration-300"
+                onClick={() => onResultClick(res.file, res.line)}
+              >
                 <strong>{res.file}</strong> (Line {res.line}):{" "}
                 {highlightText(res.text, query)}
               </li>
