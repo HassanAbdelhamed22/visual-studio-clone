@@ -31,4 +31,5 @@ export const extensionIconPaths: Record<string, string> = {
   services: "/icons/folder-config",
   admin: "/icons/folder-admin",
   themes: "/icons/folder-theme",
+  interfaces: "/icons/folder-interface",
 };

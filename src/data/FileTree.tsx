@@ -149,6 +149,19 @@ export const fileTree: IFile = {
         },
         {
           id: uuid(),
+          name: "interfaces",
+          isFolder: true,
+          children: [
+            {
+              id: uuid(),
+              name: "IFile.ts",
+              isFolder: false,
+              content: `export interface IFile {\n  id: string;\n  name: string;\n  isFolder: boolean;\n  children?: IFile[];\n  content?: string;\n}\n\nexport default IFile;`,
+            },
+          ],
+        },
+        {
+          id: uuid(),
           name: "layouts",
           isFolder: true,
           children: [
