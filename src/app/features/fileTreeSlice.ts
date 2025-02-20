@@ -5,6 +5,7 @@ interface IClickedFile {
   activeTabId: string | null;
   fileName: string;
   fileContent: string | undefined;
+  scrollToLine?: number | null;
 }
 
 interface IInitialState {
@@ -19,6 +20,7 @@ const initialState: IInitialState = {
     activeTabId: null,
     fileName: "",
     fileContent: "",
+    scrollToLine: null,
   },
   tabIdToRemove: null,
 };
@@ -36,10 +38,25 @@ export const fileTreeSlice = createSlice({
     setTabIdToRemove(state, action: PayloadAction<string | null>) {
       state.tabIdToRemove = action.payload;
     },
+    openFileAndScrollToLine(
+      state,
+      action: PayloadAction<{ file: IFile; line: number }>
+    ) {
+      const { file, line } = action.payload;
+      state.clickedFile = {
+        activeTabId: file.id,
+        fileName: file.name,
+        fileContent: file.content,
+        scrollToLine: line,
+      };
+      if (!state.openedFiles.some((f) => f.id === file.id)) {
+        state.openedFiles = [...state.openedFiles, file];
+      }
+    },
   },
 });
 
-export const { setOpenedFiles, setClickedFile, setTabIdToRemove } =
+export const { setOpenedFiles, setClickedFile, setTabIdToRemove, openFileAndScrollToLine } =
   fileTreeSlice.actions;
 
 export default fileTreeSlice.reducer;
